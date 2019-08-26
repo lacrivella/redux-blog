@@ -1,7 +1,7 @@
 import {
   CREATE_POST,
-  DELETE_POST,
-  UPDATE_POST
+  DELETE_POST
+  // UPDATE_POST
 } from '../actions/postActions';
 
 export const initialState = {
@@ -13,10 +13,13 @@ export default function postReducer(state = initialState, action) {
     case CREATE_POST:
       return { ...state, post:[...state.post, action.payload] };
     case DELETE_POST:
-      return { ...state, post: [...state.post.slice(0, action.payload),  ...state.post.slice(action.payload + 1)] };
+      return { ...state, post:[...state.post.slice(0, action.payload),  ...state.post.slice(action.payload + 1)] };
     // case UPDATE_POST:
-    //   return {...state}
+    //   return {...state, post:[
+    //     ...state.post.slice(0, action.payload.id),
+    //     {...state[action.payload.id], body: action.payload
+    //   ]}
     default:
       return state;
   }
-};
+}
