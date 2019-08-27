@@ -1,7 +1,7 @@
 import { createStore } from 'redux';
-import postReducer from './reducers/postReducer';
+import reducer from './reducers';
 
 export default createStore(
-  postReducer,
+  reducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
